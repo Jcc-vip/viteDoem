@@ -3,25 +3,27 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    redirect:"/home"
+    redirect: "/home",
   },
   {
     path: "/home",
     name: "home",
-    component: () =>
-      import("../viwes/test/index.vue"),
+    component: () => import("../viwes/test/index.vue"),
   },
   {
     path: "/test",
     name: "test",
-    component: () =>
-    import("../viwes/test/index.vue"),
+    component: () => import("../viwes/test/index.vue"),
   },
   {
     path: "/deom",
     name: "deom",
-    component: () =>
-    import("../viwes/deom/index.vue"),
+    component: () => import("../viwes/deom/index.vue"),
+  },
+  {
+    path: "/Editor",
+    name: "Editor",
+    component: () => import("../viwes/wang-editor/index.vue"),
   },
 ];
 // import.meta.env.VITE_APP_URL as any

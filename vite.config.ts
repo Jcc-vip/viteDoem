@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-// const path = require('path');
+import path from "path"; // 使用import导入解决错误
 import { visualizer } from "rollup-plugin-visualizer";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
@@ -16,20 +16,20 @@ export default defineConfig({
     visualizer(),
     //按需引入插件
     AutoImport({
+      imports: ["vue", "vue-router"], // 自动导入vue和vue-router相关函数
+      dts: "src/auto-import.d.ts", // 生成 `auto-import.d.ts` 全局声明
       include: [
         /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
         /\.vue$/,
         /\.vue\?vue/, // .vue
         /\.md$/, // .md
       ],
-      dts: true,
-      imports: ["vue", "vue-router"], //vue函数自动引入
       resolvers: [ElementPlusResolver()],
     }),
     Components({
       resolvers: [ElementPlusResolver()],
     }),
-    progress(),
+    // progress(),
     compressPlugin({
       //gzip静态资源压缩
       verbose: true, // 默认即可
@@ -40,12 +40,12 @@ export default defineConfig({
       ext: ".gz", //文件类型
     }),
   ],
-  // resolve: {
-  //   alias: {
-  //     '@': path.resolve(__dirname, 'src'),
-  //   },
-  //   extensions: ['.js', '.vue', '.json', '.mjs'],
-  // },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+    extensions: [".js", ".vue", ".json", ".mjs"],
+  },
   build: {
     chunkSizeWarningLimit: 600, //chunk 大小警告的限制
     minify: "terser", //压缩方式
