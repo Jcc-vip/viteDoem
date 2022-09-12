@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit --skipLibCheck && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "gc": "git add -A && git-cz && git pull && git push"
   },
   "dependencies": {
     "element-plus": "^2.2.16",
@@ -31,6 +32,7 @@
     "unplugin-vue-components": "^0.22.7",
     "vite": "^3.1.0",
     "vite-plugin-progress": "0.0.3",
-    "vue-tsc": "^0.40.4"
+    "vue-tsc": "^0.40.4",
+    "git-cz": "^4.9.0"
   }
 }
