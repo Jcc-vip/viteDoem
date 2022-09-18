@@ -6,7 +6,7 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import progress from "vite-plugin-progress"; //vite打包进度插件
-import { resolve } from "path"; // 主要用于alias文件路径别名
+// import { resolve } from "path"; // 主要用于alias文件路径别名
 import compressPlugin from "vite-plugin-compression"; //静态资源压缩
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -29,7 +29,7 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
-    // progress(),
+    progress(),
     compressPlugin({
       //gzip静态资源压缩
       verbose: true, // 默认即可
@@ -47,13 +47,18 @@ export default defineConfig({
     extensions: [".js", ".vue", ".json", ".mjs"],
   },
   build: {
-    chunkSizeWarningLimit: 600, //chunk 大小警告的限制
+    chunkSizeWarningLimit: 800, //chunk 大小警告的限制
     minify: "terser", //压缩方式
     rollupOptions: {
       output: {
         chunkFileNames: "assets/js/[name]-[hash].js",
         entryFileNames: "assets/js/[name]-[hash].js",
         assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+      },
+      manualChunks: {
+        // echarts: ["echarts"],
+        lodash: ["lodash"],
+        // editor: ["editor"],
       },
     },
     terserOptions: {

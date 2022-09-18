@@ -78,7 +78,7 @@ window.addEventListener("load", getTiming, false);
 </script>
 
 <template>
-  <el-button type="primary">测试</el-button>
+  <!-- <el-button type="primary">测试</el-button> -->
   <routerView></routerView>
 </template>
 
