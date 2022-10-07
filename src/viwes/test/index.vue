@@ -1,15 +1,15 @@
 <template>
   <div>
     <!-- 测试页面 -->
-    <test v-bind="$attrs" masg="'?????'"></test>
+    <Test v-bind="$attrs" masg="'?????'"></Test>
     <p></p>
-    <jssx></jssx>
+    <Hello-jsx></Hello-jsx>
   </div>
 </template>
 
 <script setup lang="ts">
-import test from "../../components/test.vue";
-import jssx from "./componets/hello.jsx";
+import Test from "../../components/test.vue";
+import HelloJsx from "./componets/hello.jsx";
 </script>
 
 <style scoped></style>

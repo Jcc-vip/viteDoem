@@ -1,7 +1,14 @@
 import { ref, defineComponent } from "vue";
-export default defineComponent(() => {
-  const render = () => {
-    return <div> Hello JSX</div>;
-  };
-  return render;
+export default defineComponent({
+  props: {
+    name: {
+      type: String,
+    },
+  },
+  setup(props) {
+    const render = () => {
+      return <div> Hello {props.name}</div>;
+    };
+    return render;
+  },
 });
