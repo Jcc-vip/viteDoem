@@ -24,6 +24,7 @@
   "devDependencies": {
     "@types/node": "^17.0.35",
     "@vitejs/plugin-vue": "^3.1.0",
+    "@vitejs/plugin-vue-jsx": "^2.0.1",
     "autoprefixer": "^10.4.8",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",

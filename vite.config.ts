@@ -6,13 +6,15 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import progress from "vite-plugin-progress"; //vite打包进度插件
-// import { resolve } from "path"; // 主要用于alias文件路径别名
+import { resolve } from "path"; // 主要用于alias文件路径别名
 import compressPlugin from "vite-plugin-compression"; //静态资源压缩
+import vueJsx from "@vitejs/plugin-vue-jsx";
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "./", //根据环境区分打包后静态资源文件路径
   plugins: [
     vue(),
+    vueJsx(), // 支持使用jsx插件
     visualizer(),
     //按需引入插件
     AutoImport({
